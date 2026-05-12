@@ -1,5 +1,16 @@
 @import url('googleapis.com');
 
+:root {
+    /* --- Reference Image Color Variables --- */
+    --stripe-blue: #bfe3f7;
+    --stripe-white: #ffffff;
+    --pastel-yellow: #fef5cc;
+    --pastel-pink: #fccedb;
+    --pastel-pink-dark: #fca8be;
+    --cozy-brown: #7c5d43; /* Replaces dark gray for a softer, cuter look */
+    --soft-blue: #e3f4fe;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,13 +19,20 @@
 
 body {
     font-family: 'Fredoka', sans-serif;
-    background: linear-gradient(180deg, #f7f4ea, #ded9e2, #c0b9dd);
+    /* Implements the vertical stripe background from the shop illustration */
+    background-color: var(--stripe-white);
+    background-image: linear-gradient(
+        90deg, 
+        var(--stripe-blue) 50%, 
+        var(--stripe-white) 50%
+    );
+    background-size: 80px 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
-    color: white;
+    color: var(--cozy-brown);
     padding: 20px;
 }
 
@@ -25,18 +43,18 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
     padding: 15px 30px;
     border-radius: 50px;
     margin-bottom: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 3px solid var(--pastel-pink);
+    box-shadow: 0 8px 0px rgba(0, 0, 0, 0.02);
 }
 
 .nav-logo {
     font-size: 1.4rem;
     font-weight: bold;
-    color: #275d8c;
+    color: var(--pastel-pink-dark);
     letter-spacing: 1px;
 }
 
@@ -48,18 +66,19 @@ body {
 .nav-btn {
     background: transparent;
     border: none;
-    color: #275d8c;
+    color: var(--cozy-brown);
     font-family: 'Fredoka', sans-serif;
     font-size: 1rem;
     padding: 8px 20px;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-weight: 500;
 }
 
 .nav-btn:hover, .nav-btn.active {
-    background: white;
-    color: #275d8c;
+    background: var(--pastel-yellow);
+    color: var(--cozy-brown);
     font-weight: 600;
 }
 
@@ -82,76 +101,12 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- MOBILE OPTIMIZATIONS FOR ANDROID & IPHONE --- */
-@media (max-width: 600px) {
-    body {
-        padding: 12px; /* Extra breathing room on small screens */
-    }
-
-    /* Fixes the navbar so buttons don't clip or overlap */
-    .navbar {
-        padding: 10px 16px;
-        margin-bottom: 20px;
-        border-radius: 25px;
-        gap: 8px;
-    }
-
-    .nav-logo {
-        font-size: 1.1rem; /* Slightly smaller logo text */
-    }
-
-    .nav-links {
-        gap: 6px;
-    }
-
-    .nav-btn {
-        padding: 6px 12px;
-        font-size: 0.85rem; /* Keeps text fitting neatly on a single line */
-        white-space: nowrap;
-    }
-
-    /* Scales down the main text headings */
-    .profile-info-body {
-        padding: 20px 15px;
-    }
-
-    .profile-info-body h2 {
-        font-size: 1.6rem;
-    }
-
-    .profile-desc {
-        font-size: 0.95rem;
-        line-height: 1.5;
-    }
-
-    /* Makes the 3D exhibition hall responsive on mobile windows */
-    #aquarium-container {
-        height: 280px; /* Shortens height so it's readable on mobile portrait mode */
-        border-width: 3px;
-        border-radius: 16px;
-    }
-
-    /* Shrinks the sticker bar buttons so they align cleanly */
-    .sticker-bar {
-        padding: 8px 12px;
-        border-radius: 20px;
-        gap: 6px;
-    }
-
-    .sticker-btn {
-        padding: 6px 10px;
-        font-size: 0.85rem;
-        border-radius: 12px;
-    }
-}
-
-/* --- HOME / CHIIKAWA BANNER PAGE --- */
+/* --- HOME / PROFILE CARD PAGE --- */
 .profile-card {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: #ffffff;
+    border: 5px solid var(--pastel-yellow);
     border-radius: 32px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.04);
     max-width: 850px; 
     width: 100%;
     margin-top: 20px;
@@ -165,24 +120,26 @@ body {
     height: 320px;
     background: url('chikawa2.jpg') no-repeat center center;
     background-size: cover;
-    border-bottom: 2px solid rgba(223, 173, 173, 0.2);
+    border-bottom: 5px solid var(--pastel-yellow);
 }
 
 .profile-info-body {
     padding: 35px;
     text-align: center;
+    background: #ffffff;
 }
 
 .profile-info-body h2 {
     font-size: 2.2rem;
     margin-bottom: 12px;
-    color: #275d8c;
+    color: var(--cozy-brown);
 }
 
 .profile-desc {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #4a5568;
+    color: var(--cozy-brown);
+    opacity: 0.9;
     margin-bottom: 25px;
     max-width: 650px;
     margin-left: auto;
@@ -193,28 +150,30 @@ body {
     display: flex;
     justify-content: center;
     gap: 12px;
+    flex-wrap: wrap;
 }
 
 .stats-badges span {
-    background: rgba(255, 255, 255, 0.6);
-    color: #275d8c;
-    padding: 6px 14px;
-    border-radius: 12px;
+    background: var(--pastel-pink);
+    color: var(--cozy-brown);
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 20px;
     font-size: 0.9rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: none;
 }
 
-/* --- IMMERSIVE 3D AQUARIUM INTERIOR HALL --- */
+/* --- 3D AQUARIUM INTERIOR HALL --- */
 #aquarium-container {
     width: 100%;
     max-width: 850px;
     height: 480px;
-    border: 4px solid #fff;
-    border-radius: 24px;
+    border: 6px solid var(--pastel-yellow);
+    border-radius: 32px;
     position: relative;
     overflow: hidden;
     margin-bottom: 25px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
     perspective: 1000px;
 }
 
@@ -224,7 +183,7 @@ body {
     position: absolute;
     top: -5%;
     left: -5%;
-    background: linear-gradient(135deg, #e0f2fe, #bae6fd, #7dd3fc);
+    background: linear-gradient(135deg, #fefeff, var(--soft-blue));
     background-size: cover;
     transition: transform 0.1s ease-out; 
 }
@@ -273,7 +232,7 @@ body {
     max-width: 80%;
     max-height: 80%;
     object-fit: contain;
-    filter: drop-shadow(0 4px 8px rgba(0, 212, 255, 0.6)); 
+    filter: drop-shadow(0 4px 8px rgba(0, 212, 255, 0.3)); 
     animation: gentleFloat 4s ease-in-out infinite alternate;
 }
 
@@ -282,7 +241,7 @@ body {
     width: 60px;
     height: 60px;
     object-fit: contain;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
 }
 
 /* --- AMBIENT FLOATING MOVEMENT ENGINE --- */
@@ -291,8 +250,7 @@ body {
     font-size: 2.5rem;
     z-index: 5;
     pointer-events: none;
-    opacity: 0.45;
-    filter: drop-shadow(0 4px 10px rgba(0, 212, 255, 0.3));
+    opacity: 0.6;
 }
 
 .jelly-1 {
@@ -339,14 +297,23 @@ body {
 }
 
 /* --- TOOLBARS & WORKSPACE CONTROLS --- */
+.header-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 30px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: 3px solid var(--pastel-yellow);
+}
+
 .header-container h1 {
-    color: #275d8c;
+    color: var(--cozy-brown);
     margin-bottom: 5px;
 }
 
 .header-container p {
-    color: #4a5568;
-    margin-bottom: 15px;
+    color: var(--cozy-brown);
+    opacity: 0.8;
 }
 
 .sticker-bar {
@@ -355,52 +322,51 @@ body {
     justify-content: center;
     gap: 12px;
     margin-bottom: 20px;
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(10px);
-    padding: 12px 25px;
-    border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px 25px;
+    border-radius: 30px;
+    border: 3px solid var(--pastel-pink);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
     width: 100%;
 }
 
 .sticker-btn {
-    background: rgba(255, 255, 255, 0.9);
-    border: 2px dashed #ffb6c1;
+    background: #ffffff;
+    border: 2px dashed var(--pastel-pink-dark);
     border-radius: 20px;
     padding: 8px 16px;
     font-size: 1rem;
     font-family: 'Fredoka', sans-serif;
-    color: #275d8c;
+    color: var(--cozy-brown);
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 8px;
     transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-weight: 500;
 }
 
 .sticker-btn.active {
-    background: #ffb6c1;
+    background: var(--pastel-pink);
     border-style: solid;
-    color: white;
-    transform: scale(1.1);
+    color: var(--cozy-brown);
+    transform: scale(1.05);
 }
 
 .sticker-btn:hover {
     transform: translateY(-3px);
+    background: var(--pastel-yellow);
 }
 
 .upload-lbl {
-    background: linear-gradient(135deg, #a8a4e6 0%, #c1bbf0 100%) !important;
+    background: linear-gradient(135deg, #cfc9f2 0%, #e2ddf7 100%) !important;
     border: 2px dashed #ffffff !important;
-    color: white !important;
-    font-weight: bold;
+    color: var(--cozy-brown) !important;
+    font-weight: 600;
 }
 
-/* FIXED: Closed the functional transform parenthesis properly */
 .upload-lbl:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 4px 12px rgba(168, 164, 230, 0.4);
 }
 
 .controls-panel {
@@ -408,24 +374,23 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.95);
+    border: 3px solid var(--pastel-pink);
     padding: 20px;
-    border-radius: 24px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-radius: 28px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.02);
 }
 
 .canvas-wrapper {
     background: #ffffff;
-    border-radius: 16px;
+    border: 3px solid var(--pastel-yellow);
+    border-radius: 20px;
     padding: 10px;
-    box-shadow: inset 0 4px 10px rgba(0,0,0,0.1);
 }
 
 #paintCanvas {
     background: #fdfbf7;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: crosshair;
     display: block;
     width: 180px;  
@@ -442,7 +407,7 @@ body {
 
 .cute-btn {
     font-family: 'Fredoka', sans-serif;
-    padding: 10px 22px;
+    padding: 12px 24px;
     border: none;
     border-radius: 50px;
     font-size: 1rem;
@@ -452,18 +417,97 @@ body {
 }
 
 #submitBtn {
-    background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+    background: var(--pastel-pink-dark);
     color: white;
-    box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
+    box-shadow: 0 4px 0px #e08298;
+}
+
+#submitBtn:active {
+    transform: translateY(4px);
+    box-shadow: none;
 }
 
 #clearBtn {
-    background: rgba(255, 255, 255, 0.6);
-    color: #4a5568;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: var(--pastel-yellow);
+    color: var(--cozy-brown);
+    box-shadow: 0 4px 0px #e0d7ab;
+}
+
+#clearBtn:active {
+    transform: translateY(4px);
+    box-shadow: none;
 }
 
 .cute-btn:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.1);
+    filter: brightness(1.03);
+}
+
+/* --- MOBILE OPTIMIZATIONS FOR ANDROID & IPHONE --- */
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+        background-size: 60px 100%; /* Scales pattern down cleanly on mobile screens */
+    }
+
+    .navbar {
+        padding: 10px 16px;
+        margin-bottom: 20px;
+        border-radius: 25px;
+        gap: 8px;
+        border-width: 2px;
+    }
+
+    .nav-logo {
+        font-size: 1.1rem; 
+    }
+
+    .nav-links {
+        gap: 6px;
+    }
+
+    .nav-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem; 
+        white-space: nowrap;
+    }
+
+    .profile-card {
+        border-width: 3px;
+    }
+
+    .profile-info-body {
+        padding: 20px 15px;
+    }
+
+    .profile-info-body h2 {
+        font-size: 1.6rem;
+    }
+
+    .profile-desc {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    #aquarium-container {
+        height: 280px; 
+        border-width: 4px;
+        border-radius: 20px;
+    }
+
+    .sticker-bar {
+        padding: 10px 12px;
+        border-radius: 20px;
+        gap: 6px;
+        border-width: 2px;
+    }
+
+    .sticker-btn {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+        border-radius: 12px;
+    }
+    
+    .controls-panel {
+        border-width: 2px;
+    }
 }
