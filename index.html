@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🫧 Magical Dream Aquarium 🫧</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- NAVIGATION BAR MENU -->
+    <nav class="navbar">
+        <div class="nav-logo">✨ Mystic Deep</div>
+        <div class="nav-links">
+            <button class="nav-btn active" data-target="profile-page">Home / About Me</button>
+            <button class="nav-btn" data-target="aquarium-page">Play Aquarium ₍^. .^₎Ⳋ</button>
+        </div>
+    </nav>
+
+    <!-- HOME / ABOUT ME PAGE SECTION WITH CHIIKAWA BANNER -->
+    <div id="profile-page" class="page-section active">
+        <div class="profile-card">
+            <div class="menu-banner-box"></div>
+            <div class="profile-info-body">
+                <h2>✨ Welcome to my Mystic Deep Sanctuary ✨</h2>
+                <p class="profile-desc">
+                    Explore a whimsical digital aquarium inspired by cozy pastel aesthetics! Draw your custom creations, stamp stickers, or upload art directly from your gallery to watch them join our collective animated marine world.
+                </p>
+                <div class="stats-badges">
+                    <span>🐱 KCHILL the developer</span>
+                    <span>🎨 Pixel Artist</span>
+                    <span>💻 Web Designer</span>
+                </div>
+            </div>
+        </div>
+    </div>
+      <!-- AQUARIUM PLAY PAGE SECTION -->
+    <div id="aquarium-page" class="page-section">
+        <div class="header-container">
+            <h1>✨ Dreamy Marine World ✨</h1>
+            <p>Draw or stamp a creature and release it into the magical sea!</p>
+        </div>
+
+        <!-- Realistic Immersive Hall Container -->
+        <div id="aquarium-container">
+            <div id="aquarium" class="hall-parallax">
+                <!-- IMMERSIVE AUTOMATED ECO-DECORATIONS -->
+                <div class="ambient-deco jelly-1"> 🐚 </div>
+                <div class="ambient-deco jelly-2">⛵ </div>
+                <div class="ambient-deco plant-1">🌿</div>
+                <div class="ambient-deco plant-2">🌱</div>
+
+                <!-- ART INJECTION DISPLAY HOUSINGS -->
+                <div class="display-zone main-glass-tank"></div>
+                <div class="display-zone column-tank"></div>
+                <div class="display-zone wall-bubble-1"></div>
+                <div class="display-zone wall-bubble-2"></div>
+            </div>
+        </div>
+
+        <!-- Expanded Marine Sticker Selection Drawer -->
+        <div class="sticker-bar">
+            <button class="sticker-btn" data-emoji=" 🌺 "> 🌺  Flower</button>
+            <button class="sticker-btn" data-emoji="🐠">🐠 Tropical</button>
+            <button class="sticker-btn" data-emoji="🐡">🐡 Puffer</button>
+            <button class="sticker-btn" data-emoji="🐙">🐙 Octopus</button>
+            <button class="sticker-btn" data-emoji=" 🐳 "> 🐳 Whale</button>
+            <button class="sticker-btn" data-emoji="⭐">⭐ Star</button>
+            <label class="sticker-btn upload-lbl">
+                📂 From Gallery
+                <input type="file" id="galleryInput" accept="image/*" style="display: none;">
+            </label>
+        </div>
+
+        <!-- CLEANED UP: Controls Panel without Creator Checkbox Toggle -->
+        <div class="controls-panel">
+            <div class="canvas-wrapper">
+                <canvas id="paintCanvas" width="180" height="180"></canvas>
+            </div>
+            <div class="button-group">
+                <button id="clearBtn" class="cute-btn btn-alt">Clear</button>
+                <button id="submitBtn" class="cute-btn">Release ✨</button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
