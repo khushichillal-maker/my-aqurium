@@ -82,6 +82,69 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* --- MOBILE OPTIMIZATIONS FOR ANDROID & IPHONE --- */
+@media (max-width: 600px) {
+    body {
+        padding: 12px; /* Extra breathing room on small screens */
+    }
+
+    /* Fixes the navbar so buttons don't clip or overlap */
+    .navbar {
+        padding: 10px 16px;
+        margin-bottom: 20px;
+        border-radius: 25px;
+        gap: 8px;
+    }
+
+    .nav-logo {
+        font-size: 1.1rem; /* Slightly smaller logo text */
+    }
+
+    .nav-links {
+        gap: 6px;
+    }
+
+    .nav-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem; /* Keeps text fitting neatly on a single line */
+        white-space: nowrap;
+    }
+
+    /* Scales down the main text headings */
+    .profile-info-body {
+        padding: 20px 15px;
+    }
+
+    .profile-info-body h2 {
+        font-size: 1.6rem;
+    }
+
+    .profile-desc {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    /* Makes the 3D exhibition hall responsive on mobile windows */
+    #aquarium-container {
+        height: 280px; /* Shortens height so it's readable on mobile portrait mode */
+        border-width: 3px;
+        border-radius: 16px;
+    }
+
+    /* Shrinks the sticker bar buttons so they align cleanly */
+    .sticker-bar {
+        padding: 8px 12px;
+        border-radius: 20px;
+        gap: 6px;
+    }
+
+    .sticker-btn {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+        border-radius: 12px;
+    }
+}
+
 /* --- HOME / CHIIKAWA BANNER PAGE --- */
 .profile-card {
     background: rgba(255, 255, 255, 0.4);
